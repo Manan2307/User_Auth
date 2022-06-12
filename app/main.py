@@ -1,7 +1,10 @@
+import imp
 from fastapi import FastAPI, Depends, HTTPException
+import redis
 from .auth import AuthHandler
 from .schemas import AuthDetails
 
+redis_cache = redis.Redis(host='localhost', port=6379, db=0, password="")
 
 app = FastAPI()
 
